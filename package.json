@@ -1,0 +1,27 @@
+{
+  "name": "calligraphygrid",
+  "version": "0.0.1",
+  "description": "A small tool showing a grid around Chinese and Japanese fonts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "calligraphy",
+    "grid",
+    "chinese",
+    "japanese"
+  ],
+  "author": "Maxime Wojtczak",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "fontmin": "^0.9.6",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.0.0",
+    "gulp-fontmin": "^0.7.4",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.3.1",
+    "imagemin-svgo": "^5.1.0"
+  }
+}

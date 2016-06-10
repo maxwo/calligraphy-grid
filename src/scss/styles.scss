@@ -1,0 +1,29 @@
+@import './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+@font-face {
+    font-family: "Lishu1";
+    src: url('../fonts/Lishu1.eot');
+    src: url('../fonts/Lishu1.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lishu1.woff') format('woff'),
+         url('../fonts/Lishu1.ttf') format('truetype'),
+         url('../fonts/Lishu1.svg') format('svg');
+}
+
+@font-face {
+    font-family: "Lishu2";
+    src: url('../fonts/Lishu2.eot');
+    src: url('../fonts/Lishu2.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lishu2.woff') format('woff'),
+         url('../fonts/Lishu2.ttf') format('truetype'),
+         url('../fonts/Lishu2.svg') format('svg');
+}
+
+#rendering {
+    background: url('../images/background.png');
+    font-family: "Lishu1";
+    font-size: 222px;
+    line-height: 288px;
+    letter-spacing: 66px;
+    padding: 0 0 0 33px;
+    margin: 0 auto;
+}
