@@ -19,11 +19,25 @@
 }
 
 #rendering {
-    background: url('../images/background.png');
-    font-family: "Lishu1";
     font-size: 222px;
     line-height: 288px;
     letter-spacing: 66px;
-    padding: 0 0 0 33px;
+    padding: 0 0 0 34px;
     margin: 0 auto;
+}
+
+.font-lishu1 {
+    font-family: "Lishu1";
+}
+
+.font-lishu2 {
+    font-family: "Lishu2";
+}
+
+.grid-horizontal {
+    background: url('../images/horizontal-grid.png');
+}
+
+.grid-diagonal {
+    background: url('../images/diagonal-grid.png');
 }
