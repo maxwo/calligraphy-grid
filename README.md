@@ -1,4 +1,4 @@
 Calligraphy Grid
 ================
 
-Works only on Safari, because of chosen TTFs.
+Works only on Safari, because Chinese fonts limitations.
