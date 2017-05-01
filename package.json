@@ -4,7 +4,8 @@
   "description": "A small tool showing a grid around Chinese and Japanese fonts.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "build": "gulp build"
   },
   "keywords": [
     "calligraphy",
