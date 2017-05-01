@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('fonts', function() {
     var fontmin = new Fontmin();
     return fontmin
-        .src('./src/fonts/*.ttf')
+        .src('./fonts/*.ttf')
         .use(Fontmin.ttf2woff({
             deflate: true
         }))
@@ -20,7 +20,7 @@ gulp.task('fonts', function() {
         });
 
     return gulp
-        .src('./src/fonts/**/*.ttf')
+        .src('./fonts/**/*.ttf')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./dist/styles/'))
         .pipe(connect.reload());
@@ -28,7 +28,7 @@ gulp.task('fonts', function() {
 
 gulp.task('styles', function() {
     return gulp
-        .src('./src/scss/**/*.scss')
+        .src('./scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./dist/styles/'))
         .pipe(connect.reload());
@@ -36,20 +36,20 @@ gulp.task('styles', function() {
 
 gulp.task('images', function() {
     return gulp
-        .src('./src/images/**/*.png')
+        .src('./images/**/*.png')
         .pipe(gulp.dest('./dist/images/'))
         .pipe(connect.reload());
 });
 
 gulp.task('scripts', function() {
     return gulp
-        .src('./src/js/**/*.js')
+        .src('./js/**/*.js')
         .pipe(gulp.dest('./dist/scripts/'))
         .pipe(connect.reload());
 });
 
 gulp.task('templates', function() {
-    return gulp.src('./src/templates/**/*.jade')
+    return gulp.src('./templates/**/*.jade')
         .pipe(jade({
             local: {},
             pretty: true,
@@ -59,15 +59,15 @@ gulp.task('templates', function() {
 });
 
 gulp.task('watchScripts', function() {
-    gulp.watch('./src/js/**/*.js', ['scripts']);
+    gulp.watch('./js/**/*.js', ['scripts']);
 });
 
 gulp.task('watchStyles', function() {
-    gulp.watch('./src/scss/**/*.scss', ['styles']);
+    gulp.watch('./scss/**/*.scss', ['styles']);
 });
 
 gulp.task('watchTemplates', function() {
-    gulp.watch('./src/templates/**/*.jade', ['templates']);
+    gulp.watch('./templates/**/*.jade', ['templates']);
 });
 
 gulp.task('connect', function() {
@@ -78,4 +78,6 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('default', ['fonts', 'images', 'scripts', 'styles', 'templates', 'watchStyles', 'watchScripts', 'watchTemplates', 'connect']);
+gulp.task('build', ['fonts', 'images', 'scripts', 'styles', 'templates']);
+
+gulp.task('default', ['build', 'watchStyles', 'watchScripts', 'watchTemplates', 'connect']);

@@ -1,0 +1,31 @@
+language: node_js
+node_js:
+  - "7"
+env:
+  global:
+    - secure: "D0QVkAjNJxi2Lj+6gRDizsYmdVheJ+xfXoAeoul46+B5VPeZ/N4BgpSKIbvvB9pJ3F4x08s4HYoqtBVpbJyYcZaOP2D/i6w9JUpMvnY5YZ8LcwigVyuxncWpGnutQqomiEwC3UsdG3/6qbM6j1nwUO/NS7J9+g3Nr9BfN48ho1nTeKG7YPWJMy5/SVRBDjlHxhOBGzP3v7Mxq6kaxodH6cRPpbSs7UEanvVW02tuAfpJFcz+TTfIYwhc0mpXAuYbOZL19xsPNXodPHUk3usayj8L+ZlVwmCEyk/a0u2lSZkJ7eCu5TQ2K3Qs6IV9ZJdj0nwMWLe5s8gJ7xepfSvI7os2nvMJCOBqejN6Q+rnpFMY3/eIxqIS+BfMZIoOQDeegi3gRKsMPDfz9h/wXCPkgExP1woNAHTrpdzNZreqyeWUURz2vI1urf1wmXEccdDXbx445ryci+ffEfvP1a+iGmUYUbIHCNkB6NVqWXAfKULA03FKwc5YXXjflAh162+jLIhqnVWqEHPb94QjRVJom60ezsVtnoNW/li1tlJ3g3CyPiE5qyr0k78SVzuMO2JThPodBpW5KPr2udqcu3eIwr1rypT1Z0WlABGkVcitLkVbLbFDjzeC3Vd7U0a02BLxpk/NUWo1Ulu9Gs5Pl2kq5X5Y3DauCZ/vaU/slLaPgYE="
+    - secure: "L3iVSlUmGwkBj69xAqlGmwPkJOrGrHtkyPK7+Lu1RnynJQX44KYLrf+nggJDFa9u51rbigLSCeqjJPTXBtJ8MaqPK7xVw/lsVqFltY7JiNI9buh54BrNMhsK2J4d9M6LsTHD+hySZ3vWEFxD39w1Jb7615AYT2OW8t4I6PAujzfTVw9pA/DyGRv8YP/5uq2dO/N4fS7WHqDiHzxqiPOEcuqneISJorF/Sor++w3BVNu70jN9VAldr6LoGCc65WYS+SRbXEQtpTx19PsSUcdQDfO00t6afcbwylfNn17zTT5IXmrLWzmyREa7CqUPOete4618oqS+yXx7a0fSYnQCpkf7OSfKTbZbBF/2h0fHfIEZFFjRAF99R4evnCd8V7u7V69SfEr8eHdIUzIdLTXBARy0e9rH7WnvOqI3k2c3SQ83ryDWjCxp8wuqrpcpa4rYNtjDFK4vvQxF/eYv5G/pFewqV/yswSJtww2E3vdE08RjzlbtaYWcAMmuxudZQO1L7l1S1AJBnIINU4i3yeLmplDwbyf2Qon8ZTRDUWLNsFrsKSQrk0XAvOvBMfxRDWWpyQdKK/+QdgXtiGPi/yFf3HGySGu6X9B7CMd8cvfbE1uqocOv8kWcoytZOeMWI/mSPWNcKg67++BYlsZeIBdS7+SjqaAb7wE8icrn5g+E90U="
+
+services:
+  - docker
+
+before_script:
+  - npm install -g gulp
+  - npm run build
+
+after_success:
+  - export DOCKER_REPOSITORY=$TRAVIS_REPO_SLUG
+  - export DOCKER_USERNAME=$(echo $DOCKER_REPOSITORY | sed 's#\/.*##')
+  - export DOCKER_TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker build -t $DOCKER_REPOSITORY:$TRAVIS_COMMIT .
+  - docker tag $DOCKER_REPOSITORY:$TRAVIS_COMMIT $DOCKER_REPOSITORY:$DOCKER_TAG
+  - docker push $DOCKER_REPOSITORY
+
+deploy:
+  provider: pages
+  local_dir: dist
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master

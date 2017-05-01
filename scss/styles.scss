@@ -1,0 +1,84 @@
+@import './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+@font-face {
+    font-family: "Lishu1";
+    src: url('../fonts/Lishu1.eot');
+    src: url('../fonts/Lishu1.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lishu1.woff') format('woff'),
+         url('../fonts/Lishu1.ttf') format('truetype'),
+         url('../fonts/Lishu1.svg') format('svg');
+}
+
+@font-face {
+    font-family: "Lishu2";
+    src: url('../fonts/Lishu2.eot');
+    src: url('../fonts/Lishu2.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lishu2.woff') format('woff'),
+         url('../fonts/Lishu2.ttf') format('truetype'),
+         url('../fonts/Lishu2.svg') format('svg');
+}
+
+@font-face {
+    font-family: "HDZB_10";
+    src: url('../fonts/HDZB_10.eot');
+    src: url('../fonts/HDZB_10.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/HDZB_10.woff') format('woff'),
+         url('../fonts/HDZB_10.ttf') format('truetype'),
+         url('../fonts/HDZB_10.svg') format('svg');
+}
+
+@font-face {
+    font-family: "HDZB_25";
+    src: url('../fonts/HDZB_25.eot');
+    src: url('../fonts/HDZB_25.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/HDZB_25.woff') format('woff'),
+         url('../fonts/HDZB_25.ttf') format('truetype'),
+         url('../fonts/HDZB_25.svg') format('svg');
+}
+
+@font-face {
+    font-family: "HDZB_36";
+    src: url('../fonts/HDZB_36.eot');
+    src: url('../fonts/HDZB_36.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/HDZB_36.woff') format('woff'),
+         url('../fonts/HDZB_36.ttf') format('truetype'),
+         url('../fonts/HDZB_36.svg') format('svg');
+}
+
+#rendering {
+    font-size: 222px;
+    line-height: 288px;
+    letter-spacing: 66px;
+    padding: 0 0 0 34px;
+    margin: 0 auto;
+}
+
+.font-lishu1 {
+    font-family: "Lishu1";
+}
+
+.font-lishu2 {
+    font-family: "Lishu2";
+}
+
+.font-HDZB_10 {
+    font-family: "HDZB_10";
+}
+
+.font-HDZB_25 {
+    font-family: "HDZB_25";
+}
+
+.font-HDZB_36 {
+    font-family: "HDZB_36";
+}
+
+
+
+.grid-horizontal {
+    background: url('../images/horizontal-grid.png');
+}
+
+.grid-diagonal {
+    background: url('../images/diagonal-grid.png');
+}
